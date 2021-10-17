@@ -64,4 +64,20 @@ public class StringCalculatorShould {
 
 		StringCalculator.Add("-3");
 	}
+	
+	@Test
+	public void throwsOnNegativeNumbersWithAllNumbersInExceptionMessage() {
+		expectedException.expect(IllegalArgumentException.class);
+		expectedException.expectMessage("negatives not allowed: -3,-5,-13");
+
+		StringCalculator.Add("1,-3,5,-5,-13");
+	}
+
+	@SuppressWarnings("deprecation")
+	@Test
+	public void mapsNumbersAbove1000ToLastThreeDigits() {
+		assertThat(StringCalculator.Add("1002"), is(2));
+		assertThat(StringCalculator.Add("1040,10002"), is(42));
+	}
+
 }
