@@ -19,7 +19,7 @@ public class StringCalculatorShould {
 	@Test
 	public void sumsSingleNumberToItself() {
 		assertThat(StringCalculator.Add("1"), is(1));
-		//assertThat(StringCalculator.Add("42"), is(42));
+		
 	}
 	
 	@SuppressWarnings("deprecation")
