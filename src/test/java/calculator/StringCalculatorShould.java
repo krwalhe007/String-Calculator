@@ -45,4 +45,23 @@ public class StringCalculatorShould {
 	public void sumsNumbersDelimitedByCommaOrNewline() {
 		assertThat(StringCalculator.Add("1,2\n3"), is(6));
 	}
+	
+	@SuppressWarnings("deprecation")
+	@Test
+	public void usesDelimiterSepcified() {
+		assertThat(StringCalculator.Add("//;\n1;2"), is(3));
+		assertThat(StringCalculator.Add("//.\n2.3.1"), is(6));
+	}
+
+	@SuppressWarnings("deprecation")
+	@Rule
+	public ExpectedException expectedException = ExpectedException.none();
+
+	@Test
+	public void throwsOnNegativeNumber() {
+		expectedException.expect(IllegalArgumentException.class);
+		expectedException.expectMessage("negatives not allowed: -3");
+
+		StringCalculator.Add("-3");
+	}
 }
