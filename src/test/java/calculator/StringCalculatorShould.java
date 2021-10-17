@@ -33,4 +33,10 @@ public class StringCalculatorShould {
 	public void sumsThreeNumbersSeperatedByComma() {
 		assertThat(StringCalculator.Add("1,2,3"), is(6));
 	}
+	
+	@SuppressWarnings("deprecation")
+	@Test
+	public void sumsNumbersDelimitedByNewline() {
+		assertThat(StringCalculator.Add("1\n2"), is(3));
+	}
 }
