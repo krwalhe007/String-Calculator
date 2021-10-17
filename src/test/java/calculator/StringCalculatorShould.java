@@ -26,6 +26,11 @@ public class StringCalculatorShould {
 	@Test
 	public void sumsTwoNumbersSeperatedByComma() {
 		assertThat(StringCalculator.Add("1,2"), is(3));
-		//assertThat(StringCalculator.Add("1,3"), is(4));
+	}
+	
+	@SuppressWarnings("deprecation")
+	@Test
+	public void sumsThreeNumbersSeperatedByComma() {
+		assertThat(StringCalculator.Add("1,2,3"), is(6));
 	}
 }
