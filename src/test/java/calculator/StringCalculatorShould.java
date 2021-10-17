@@ -79,5 +79,18 @@ public class StringCalculatorShould {
 		assertThat(StringCalculator.Add("1002"), is(2));
 		assertThat(StringCalculator.Add("1040,10002"), is(42));
 	}
+	
+	@SuppressWarnings("deprecation")
+	@Test
+	public void acceptsDelimiterOfArbitraryLength() {
+		assertThat(StringCalculator.Add("//[***]\n1***2***3"), is(6));
+	}
+
+	@SuppressWarnings("deprecation")
+	@Test
+	public void acceptsMultipleDelimiters() {
+		assertThat(StringCalculator.Add("//[-][;]\n1-2;3"), is(6));
+		assertThat(StringCalculator.Add("//[--][...]\n2--3...4"), is(9));
+	}
 
 }
