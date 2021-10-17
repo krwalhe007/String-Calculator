@@ -14,6 +14,12 @@ public class StringCalculatorShould {
 	public void sumsEmptyStringTo0() {
 		assertThat(StringCalculator.Add(""), is(0));
 	}
-
+	
+	@SuppressWarnings("deprecation")
+	@Test
+	public void sumsSingleNumberToItself() {
+		assertThat(StringCalculator.Add("1"), is(1));
+		//assertThat(StringCalculator.Add("42"), is(42));
+	}
 	
 }
