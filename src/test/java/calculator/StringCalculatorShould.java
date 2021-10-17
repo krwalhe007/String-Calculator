@@ -22,4 +22,10 @@ public class StringCalculatorShould {
 		//assertThat(StringCalculator.Add("42"), is(42));
 	}
 	
+	@SuppressWarnings("deprecation")
+	@Test
+	public void sumsTwoNumbersSeperatedByComma() {
+		assertThat(StringCalculator.Add("1,2"), is(3));
+		//assertThat(StringCalculator.Add("1,3"), is(4));
+	}
 }
